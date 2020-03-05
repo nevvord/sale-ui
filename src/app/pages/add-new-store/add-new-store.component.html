@@ -1,76 +1,90 @@
 <div *ngIf="!StoreCreated" class="row">
-    <div class="col-lg-6 mx-auto">
-      <div class="card mt-4 ">
-        <h4 class="p-2 text-light bg-info">
-          Create my store
-        </h4>
-        <div class="card-body">
-          <form [formGroup]="form" (ngSubmit)="addStore()">
-            <div class="form-group">
-              <label for="emailSignUp">Login</label>
-              <input type="text" class="form-control" id="login" formControlName="login"
-                name="login" [ngClass]="{
-                        'is-valid': form.get('email').valid,
-                        'is-invalid': form.get('email').invalid && form.get('email').touched}
+  <div class="col-lg-6 mx-auto">
+    <div class="card mt-4 ">
+      <h4 class="p-2 text-light bg-info">
+        Create my store
+      </h4>
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="addStore()">
+          <div class="form-group">
+            <label for="emailSignUp">Login</label>
+            <input type="text" class="form-control" id="login" formControlName="login" name="login" [ngClass]="{
+                        'is-valid': form.get('login').valid,
+                        'is-invalid': form.get('login').invalid && form.get('email').touched}
                       ">
-              <div *ngIf="form.get('email').invalid && form.get('email').touched" class="invalid-feedback">Please choose a email.</div>
-            </div>
-  
-            <div class="form-group">
-              <label for="passwordSignUp">Password</label>
-              <input type="password" class="form-control" [ngClass]="{
+            <div *ngIf="form.get('email').invalid && form.get('email').touched" class="invalid-feedback">Please choose a
+              email.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="passwordSignUp">Password</label>
+            <input type="password" class="form-control" [ngClass]="{
                     'is-valid': form.get('password').valid,
                     'is-invalid': form.get('password').invalid && form.get('password').touched
-                    }" 
-                    id="password" formControlName="password"
-                aria-describedby="passwordHelpBlock">
-              <small *ngIf="form.get('password').invalid && form.get('password').untouched " id="passwordHelpBlock"
-                class="form-text text-muted">
-                At least 6 characters and numbers, upper and lower case are required.
-              </small>
-              <div *ngIf="form.get('password').invalid && form.get('password').touched " id="passwordHelpBlock"
-                class="invalid-feedback">
-                At least 6 characters and numbers, upper and lower case are required.
-              </div>
-              <div *ngIf="form.get('password').getError('required')" class="invalid-feedback">
-                Please enter a password.
-              </div>
-              <div *ngIf="form.get('password').getError('minlength')" class="invalid-feedback">
-                Min lenght 6 symbols.
-              </div>
-              <div *ngIf="form.get('password').valid" class="valid-feedback">Try not to lose your password.</div>
+                    }" id="password" formControlName="password" aria-describedby="passwordHelpBlock">
+            <small *ngIf="form.get('password').invalid && form.get('password').untouched " id="passwordHelpBlock"
+              class="form-text text-muted">
+              At least 6 characters and numbers, upper and lower case are required.
+            </small>
+            <div *ngIf="form.get('password').invalid && form.get('password').touched " id="passwordHelpBlock"
+              class="invalid-feedback">
+              At least 6 characters and numbers, upper and lower case are required.
             </div>
+            <div *ngIf="form.get('password').getError('required')" class="invalid-feedback">
+              Please enter a password.
+            </div>
+            <div *ngIf="form.get('password').getError('minlength')" class="invalid-feedback">
+              Min lenght 6 symbols.
+            </div>
+            <div *ngIf="form.get('password').valid" class="valid-feedback">Try not to lose your password.</div>
+          </div>
 
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" name="email" id="email" formControlName="email" aria-describedby="emailHelpBlock">
-              <small id="emailHelpBlock">Email for store massage</small>
-            </div>
-            <div class="form-group">
-              <label for="name">Store name</label>
-              <input type="text" class="form-control" name="storeName" id="storeName" placeholder="Creative" formControlName="storeName" aria-describedby="storeNameHelpBlock">
-              <small id="storeNameHelpBlock">Name for your store</small>
-            </div>
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" class="form-control" name="fullName" id="fullName" placeholder="Pargalı İbrahim Paşa" formControlName="fullName" aria-describedby="fullNameHelpBlock">
-              <small id="fullNameHelpBlock">Enter your full name</small>
-            </div>
-            <div class="form-group">
-              <label for="name">Phone number</label>
-              <input type="text" class="form-control" name="phone" id="name" placeholder="+380" formControlName="phone" aria-describedby="phoneHelpBlock">
-              <small id="phoneHelpBlock">Lorem ipsum dolor sit amet.</small>
-            </div>
-            <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" name="rules" id="rules" formControlName="rules">
-              <label for="rules" class="form-check-label">I have read and agree to the rules.</label>
-            </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" id="email" formControlName="email"
+              aria-describedby="emailHelpBlock">
+            <small id="emailHelpBlock">Email for store massage</small>
+          </div>
+          <div class="form-group">
+            <label for="name">Store name</label>
+            <input type="text" class="form-control" name="storeName" id="storeName" placeholder="Creative"
+              formControlName="storeName" aria-describedby="storeNameHelpBlock">
+            <small id="storeNameHelpBlock">Name for your store</small>
+          </div>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" class="form-control" name="fullName" id="fullName" placeholder="Pargalı İbrahim Paşa"
+              formControlName="fullName" aria-describedby="fullNameHelpBlock">
+            <small id="fullNameHelpBlock">Enter your full name</small>
+          </div>
+          <div class="form-group">
+            <label for="name">Phone number</label>
+            <input type="text" class="form-control" name="phone" id="name" placeholder="+380" formControlName="phone"
+              aria-describedby="phoneHelpBlock">
+            <small id="phoneHelpBlock">Lorem ipsum dolor sit amet.</small>
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" name="rules" id="rules" formControlName="rules">
+            <label for="rules" class="form-check-label">I have read and agree to the rules.</label>
+          </div>
 
-            <button [disabled]="form.invalid" type="submit" class="btn btn-primary">
-              Create
-            </button>
-          </form>
-        </div>
+          <button [disabled]="form.invalid" type="submit" class="btn btn-primary">
+            Create
+          </button>
+        </form>
       </div>
     </div>
   </div>
+</div>
+<div class="mt-4" *ngIf="StoreCreated">
+  <div class="row bg-dark text-light">
+    <div class="col-3">Name</div>
+    <div class="col-6"></div>
+    <div class="col-3">Status</div>
+  </div>
+  <div *ngFor="let store of Stores" class="row bg-white border">
+    <div class="col-3">  {{Stores[0].storeName}} </div>
+    <div class="col-6">  {{Stores[0].email}} </div>
+    <div class="col-3">  {{Stores[0].status}} </div>
+  </div>
+</div>

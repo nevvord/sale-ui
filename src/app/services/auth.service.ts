@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private _SignUpURL: any = "http://localhost:3001/auth/registration"
-  private _SignInURL: any = "http://localhost:3001/auth/login"
+  private _SignUpURL: any = "http://localhost:3012/auth/registration"
+  private _SignInURL: any = "http://localhost:3012/auth/login"
   constructor(private http: HttpClient, private _router: Router) { }
 
   signUp(user): Observable<SignUpResultat> {

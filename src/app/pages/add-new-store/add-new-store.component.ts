@@ -14,6 +14,7 @@ export class AddNewStoreComponent implements OnInit {
   private readonly _notifier:  NotifierService
   private form: FormGroup
   public StoreCreated: boolean
+  public Stores: Array<object>
 
   constructor(public notifierService: NotifierService, private FormBuilder: FormBuilder, private _myStore: MyStoreService, private _router: Router) {
     this._notifier = notifierService
@@ -31,7 +32,13 @@ export class AddNewStoreComponent implements OnInit {
     })
     this._myStore.checkStore()
         .subscribe(
-          res => this.StoreCreated = true,
+          res => {
+            console.log(res);
+            
+            this.StoreCreated = true
+            this.Stores = res.stores     
+            // this._notifier.show({ type: 'success', massage: res.msg })
+          },
           err => this.StoreCreated = false
         )
   }
